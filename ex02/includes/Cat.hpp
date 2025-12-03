@@ -6,18 +6,19 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:52 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:29 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/03 12:21:57 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include "Animal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Cat : public Animal{
+class Cat : public AAnimal{
 	private:
-	
+		Brain *_brain;		
 	public:
 		Cat();
 		Cat(const Cat &model);

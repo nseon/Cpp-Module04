@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 15:15:52 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:29 by nseon            ###   ########.fr       */
+/*   Created: 2025/11/20 10:21:00 by nseon             #+#    #+#             */
+/*   Updated: 2025/12/03 12:23:19 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include <iostream>
 
 #include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-class Cat : public Animal{
-	private:
-	
-	public:
-		Cat();
-		Cat(const Cat &model);
-		Cat &operator=(const Cat &model);
-		~Cat();
+int main()
+{
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	Cat cat;
 
-		void makeSound() const;
-};
-
-#endif
+	delete j;
+	delete i;
+	return (0);
+}

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 15:15:52 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:29 by nseon            ###   ########.fr       */
+/*   Created: 2025/11/20 10:41:03 by nseon             #+#    #+#             */
+/*   Updated: 2025/12/03 12:21:40 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
-#include "Animal.hpp"
+# include <string>
 
-class Cat : public Animal{
-	private:
-	
-	public:
-		Cat();
-		Cat(const Cat &model);
-		Cat &operator=(const Cat &model);
-		~Cat();
+class AAnimal
+{
+protected:
+	std::string _type;
+public:
+	AAnimal();
+	AAnimal(AAnimal const &model);
+	AAnimal &operator=(const AAnimal &model);
+	virtual ~AAnimal();
 
-		void makeSound() const;
+	virtual void makeSound() const = 0;
+	std::string getType() const;
 };
 
 #endif

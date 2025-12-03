@@ -1,0 +1,78 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nseon <nseon@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/13 10:54:16 by nseon             #+#    #+#              #
+#    Updated: 2025/12/03 12:28:28 by nseon            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME 		=	brain
+
+# ---------------FILES--------------- #
+
+MAKE_DIR	=	.make/
+
+SRC_DIR		=	src/
+
+OBJ			=	$(patsubst %.cpp, $(MAKE_DIR)%.o, $(SRC))
+
+DEP			=	$(patsubst %.cpp, $(MAKE_DIR)%.d, $(SRC))
+
+# ---------------MAIN---------------- #
+
+SRC			=	main.cpp \
+				Animal.cpp \
+				Cat.cpp \
+				Dog.cpp \
+				Brain.cpp \
+
+# --------------INCLUDES------------- #
+
+INCS_DIR	=	includes/
+INCLUDES	=	$(INCS_DIR)
+
+# --------------CONFIGS-------------- #
+
+CC			=	c++
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3  -Weverything -Wno-suggest-override -Wno-suggest-destructor-override -Wno-padded
+CPPFLAGS	=	-MMD -MP $(addprefix -I, $(INCLUDES))
+
+# --------------TARGETS-------------- #
+
+.PHONY: all
+all: $(NAME)
+
+$(NAME): $(LIB_PATH) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
+
+$(MAKE_DIR)%.o: $(SRC_DIR)%.cpp
+	@mkdir -p $(@D)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(LIB_PATH): force
+	$(MAKE) -C $(@D)
+
+.PHONY: clean
+clean:
+	-for lib in $(dir $(LIB_PATH)); do $(MAKE) -s -C $$lib $@; done
+	rm -rf $(MAKE_DIR)
+
+.PHONY: fclean
+fclean:
+	-for lib in $(dir $(LIB_PATH)); do $(MAKE) -s -C $$lib $@; done
+	rm -rf $(NAME) $(MAKE_DIR)
+
+.PHONY: re
+re: fclean
+	$(MAKE)
+
+.PHONY: force
+force:
+
+-include $(DEP)
+
+.DEFAULT_GOAL := all

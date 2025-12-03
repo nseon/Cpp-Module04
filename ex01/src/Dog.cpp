@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:35 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:40 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/03 12:23:15 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,33 @@
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal(), _brain(new Brain())
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	_type = "Dog";
 }
 
-Dog::Dog(const Dog &model) : Animal(model)
+Dog::Dog(const Dog &model) : _brain(new Brain())
 {
 	std::cout << "Dog copy constructor called" << std::endl;
+	_type = model._type;
 }
 
 Dog &Dog::operator=(const Dog &model)
 {
 	std::cout << "Dog copy assignement called" << std::endl;
 	if (this != &model)
-		Animal::operator=(model);
+	{
+		_type = model._type;
+		_brain = model._brain;
+	}
 	return (*this);
 }
 
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
 
 void Dog::makeSound() const
