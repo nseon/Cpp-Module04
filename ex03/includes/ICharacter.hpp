@@ -6,12 +6,16 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 15:29:18 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 15:29:36 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/08 17:32:32 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
+
+# include <string>
+
+class AMateria;
 
 class ICharacter
 {

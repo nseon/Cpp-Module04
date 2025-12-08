@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 14:40:55 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/08 17:52:13 by nseon            ###   ########.fr       */
+/*   Created: 2025/12/04 09:23:08 by nseon             #+#    #+#             */
+/*   Updated: 2025/12/08 13:42:13 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "AMateria.hpp"
+#include <Cure.hpp>
 
-AMateria::AMateria() : _type("void")
+Cure::Cure()
+{
+	_type = "cure";
+}
+
+Cure::Cure(Cure const &model) : AMateria(model)
 {}
 
-AMateria::AMateria(AMateria const &model) : _type(model._type)
-{}
-
-AMateria &AMateria::operator=(AMateria const &model)
+Cure &Cure::operator=(Cure const &model)
 {
 	if (this != &model)
 		_type = model._type;
-	return(*this);
+	return (*this);
 }
 
-AMateria::~AMateria()
+Cure::~Cure()
 {}
 
-AMateria::AMateria(std::string const & type) : _type(type)
-{}
-
-std::string const &AMateria::getType() const
+void Cure::use(ICharacter& target)
 {
-	return (_type);
+	std::cout << "* heals " << target.getName() << "'" << "s wounds *" << std::endl;
 }
 
-void AMateria::use(ICharacter& target)
+AMateria	*Cure::clone() const
 {
-	(void)target;
+	return (new Cure(*this));
 }

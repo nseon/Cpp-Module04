@@ -6,11 +6,11 @@
 #    By: nseon <nseon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 10:54:16 by nseon             #+#    #+#              #
-#    Updated: 2025/12/03 12:26:16 by nseon            ###   ########.fr        #
+#    Updated: 2025/12/08 17:54:56 by nseon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	abstract
+NAME 		=	interface
 
 # ---------------FILES--------------- #
 
@@ -25,10 +25,11 @@ DEP			=	$(patsubst %.cpp, $(MAKE_DIR)%.d, $(SRC))
 # ---------------MAIN---------------- #
 
 SRC			=	main.cpp \
-				AAnimal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				Brain.cpp \
+				Character.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				MateriaSource.cpp \
+				AMateria.cpp \
 
 # --------------INCLUDES------------- #
 
@@ -38,7 +39,7 @@ INCLUDES	=	$(INCS_DIR)
 # --------------CONFIGS-------------- #
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3  -Weverything -Wno-suggest-override -Wno-suggest-destructor-override -Wno-padded
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3  -Weverything -Wno-suggest-override -Wno-suggest-destructor-override -Wno-padded -Wno-weak-vtables
 CPPFLAGS	=	-MMD -MP $(addprefix -I, $(INCLUDES))
 
 # --------------TARGETS-------------- #

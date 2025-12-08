@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 14:40:55 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/08 17:52:13 by nseon            ###   ########.fr       */
+/*   Created: 2025/12/04 09:23:16 by nseon             #+#    #+#             */
+/*   Updated: 2025/12/08 13:46:01 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "AMateria.hpp"
+#include <Ice.hpp>
 
-AMateria::AMateria() : _type("void")
+Ice::Ice()
+{
+	_type = "ice";
+}
+
+Ice::Ice(Ice const &model) : AMateria(model)
 {}
 
-AMateria::AMateria(AMateria const &model) : _type(model._type)
-{}
-
-AMateria &AMateria::operator=(AMateria const &model)
+Ice &Ice::operator=(Ice const &model)
 {
 	if (this != &model)
 		_type = model._type;
-	return(*this);
+	return (*this);
 }
 
-AMateria::~AMateria()
+Ice::~Ice()
 {}
 
-AMateria::AMateria(std::string const & type) : _type(type)
-{}
-
-std::string const &AMateria::getType() const
+void Ice::use(ICharacter& target)
 {
-	return (_type);
+	std::cout << "* shoots an ice bolt at "<< target.getName() << " *" << std::endl;
 }
 
-void AMateria::use(ICharacter& target)
+AMateria	*Ice::clone() const
 {
-	(void)target;
+	return (new Ice(*this));
 }
