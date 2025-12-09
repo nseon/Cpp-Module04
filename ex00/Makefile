@@ -6,7 +6,7 @@
 #    By: nseon <nseon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 10:54:16 by nseon             #+#    #+#              #
-#    Updated: 2025/11/24 16:31:21 by nseon            ###   ########.fr        #
+#    Updated: 2025/12/09 09:30:14 by nseon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ DEP			=	$(patsubst %.cpp, $(MAKE_DIR)%.d, $(SRC))
 
 SRC			=	main.cpp \
 				Animal.cpp \
+				WrongAnimal.cpp \
 				Cat.cpp \
 				Dog.cpp \
+				WrongCat.cpp \
 
 # --------------INCLUDES------------- #
 

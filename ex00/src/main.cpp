@@ -6,14 +6,16 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:21:00 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:45 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 09:50:47 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 #include "Dog.hpp"
 
 int main()
@@ -21,6 +23,7 @@ int main()
 	Animal	animal;
 	Cat		cat;
 	Dog		dog;
+	
 
 	std::cout << std::endl << "Type :" << animal.getType() << "\nSound: "; 
 	animal.makeSound();
@@ -33,15 +36,22 @@ int main()
 	const Animal *meta = new Animal();
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
+	const WrongAnimal *k = new WrongCat();
+	const WrongCat	l;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	std::cout << k->getType() << " " << std::endl;
+	std::cout << l.getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
+	k->makeSound();
+	l.makeSound();
 	meta->makeSound();
 	std::cout << std::endl;
 	
 	delete meta;
 	delete i;
 	delete j;
+	delete k;
 	return (0);
 }

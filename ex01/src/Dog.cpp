@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:35 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:15 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 10:13:04 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Dog::Dog() : Animal(), _brain(new Brain())
 	_type = "Dog";
 }
 
-Dog::Dog(const Dog &model) : _brain(new Brain())
+Dog::Dog(const Dog &model) : _brain(new Brain(*model._brain))
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	_type = model._type;

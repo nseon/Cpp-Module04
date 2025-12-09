@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:48 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:09:21 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 09:29:54 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat() : Animal(), _brain(new Brain())
+WrongCat::WrongCat() : WrongAnimal()
 {
-	std::cout << "Cat default constructor called" << std::endl;
-	_type = "Cat";
+	std::cout << "WrongCat default constructor called" << std::endl;
+	_type = "WrongCat";
 }
 
-Cat::Cat(const Cat &model) : _brain(new Brain(*model._brain))
+WrongCat::WrongCat(const WrongCat &model) : WrongAnimal(model)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
-	_type = model._type;
+	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &model)
+WrongCat &WrongCat::operator=(const WrongCat &model)
 {
-	std::cout << "Cat copy assignement called" << std::endl;
+	std::cout << "WrongCat copy assignement called" << std::endl;
 	if (this != &model)
-	{
-		_type = model._type;
-		_brain = model._brain;
-	}
+		WrongAnimal::operator=(model);
 	return (*this);
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Cat destructor called" << std::endl;
-	delete _brain;
+	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Cat sound" << std::endl;
+	std::cout << "WrongCat sound" << std::endl;
 }

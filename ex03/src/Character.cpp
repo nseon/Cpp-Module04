@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 15:03:30 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/08 14:51:42 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 10:54:49 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Character::equip(AMateria* m)
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
-			std::cout << _name <<" has equipped " << m->getType() << " on his " << i << " inventory's slot" << std::endl;
+			std::cout << _name <<" has equipped " << m->getType() << " on inventory's slot " << i << std::endl;
 			return ;
 		}
 	}
@@ -91,7 +91,10 @@ void Character::use(int idx, ICharacter& target)
 		return ;
 	}
 	if (_inventory[idx])
+	{
+		std::cout << _name << " use " << _inventory[idx]->getType() << std::endl;
 		_inventory[idx]->use(target);
+	}
 	else
 		std::cout << _name << " can't use materia, inventory's slot is empty" << std::endl; 
 }

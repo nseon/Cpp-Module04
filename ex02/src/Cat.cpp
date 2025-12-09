@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:48 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:21:40 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 10:24:08 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat() : AAnimal(), _brain(new Brain())
 	_type = "Cat";
 }
 
-Cat::Cat(const Cat &model) : _brain(model._brain)
+Cat::Cat(const Cat &model) : _brain(new Brain(*model._brain))
 {
 	_type = model._type;
 	std::cout << "Cat copy constructor called" << std::endl;
