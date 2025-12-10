@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:21:00 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:16:59 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 14:24:25 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 	
 	Cat cat;
 	Cat cat2(cat);
+	cat = cat2;
 	Animal *a = new Dog;
 	std::cout << a->getType() << std::endl;
 	*a = cat;

@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:35 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:13:04 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 14:25:10 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(), _brain(new Brain())
+Dog::Dog() : _brain(new Brain())
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	_type = "Dog";
@@ -28,11 +28,11 @@ Dog::Dog(const Dog &model) : _brain(new Brain(*model._brain))
 
 Dog &Dog::operator=(const Dog &model)
 {
-	std::cout << "Dog copy assignement called" << std::endl;
+	std::cout << "Dog copy assignement operator called" << std::endl;
 	if (this != &model)
 	{
 		_type = model._type;
-		_brain = model._brain;
+		*_brain = *model._brain;
 	}
 	return (*this);
 }

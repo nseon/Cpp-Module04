@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:48 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:24:08 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/10 12:40:33 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Cat &Cat::operator=(const Cat &model)
 	if (this != &model)
 	{
 		_type = model._type;
-		_brain = model._brain;
+		*_brain = *model._brain;
 	}
 	return (*this);
 }

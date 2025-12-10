@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:40:56 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/03 12:23:08 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 14:23:30 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Animal::Animal() : _type("Undefined animal")
 {
-	std::cout << "Animal default constructor callled" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::Animal(Animal const &model) : _type(model._type)

@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:35 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:24:12 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/10 12:40:37 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Dog &Dog::operator=(const Dog &model)
 	if (this != &model)
 	{
 		_type = model._type;
-		_brain = model._brain;
+		*_brain = *model._brain;
 	}
 	return (*this);
 }

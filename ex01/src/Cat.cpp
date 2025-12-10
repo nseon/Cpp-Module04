@@ -6,7 +6,7 @@
 /*   By: nseon <nseon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:15:48 by nseon             #+#    #+#             */
-/*   Updated: 2025/12/09 10:09:21 by nseon            ###   ########.fr       */
+/*   Updated: 2025/12/09 14:25:01 by nseon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal(), _brain(new Brain())
+Cat::Cat() : _brain(new Brain())
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	_type = "Cat";
@@ -28,11 +28,11 @@ Cat::Cat(const Cat &model) : _brain(new Brain(*model._brain))
 
 Cat &Cat::operator=(const Cat &model)
 {
-	std::cout << "Cat copy assignement called" << std::endl;
+	std::cout << "Cat copy assignement operator called" << std::endl;
 	if (this != &model)
 	{
 		_type = model._type;
-		_brain = model._brain;
+		*_brain = *model._brain;
 	}
 	return (*this);
 }
